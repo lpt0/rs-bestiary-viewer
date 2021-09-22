@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import Header from './Header';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
+import AllAreas from './areas/All';
 
 const darkTheme = createTheme({
   palette: {
@@ -18,6 +19,10 @@ function App() {
       <div className="App">
         <Router>
           <Header />
+
+          <div id="ContentHolder">
+            <Route path="/areas" component={AllAreas} />
+          </div>
         </Router>
       </div>
     </ThemeProvider>

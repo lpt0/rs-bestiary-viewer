@@ -9,6 +9,7 @@ import SpecificSlayerCategory from './slayer/Specific';
 import AllSlayerCategories from './slayer/All';
 import SpecificWeakness from './weaknesses/Specific';
 import AllWeaknesses from './weaknesses/All';
+import AllBeasts from './beasts/All';
 
 const darkTheme = createTheme({
   palette: {
@@ -26,6 +27,8 @@ function App() {
           <Header />
 
           <div id="ContentHolder">
+            <Route path="/beasts" exact component={AllBeasts} />
+
             <Route path="/areas/:name" exact component={SpecificArea} />
             <Route path="/areas" exact component={AllAreas} />
 

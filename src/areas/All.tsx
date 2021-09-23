@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Link from "@mui/material/Link";
 import { API } from "../Utils";
+import { Area } from "../interfaces/parameters";
 
 /** List all areas. */
 export default function AllAreas() {
@@ -29,7 +30,7 @@ export default function AllAreas() {
 
       <TableBody>
         { 
-          areas.map(({ name }: { name: string }) => 
+          areas.map(({ name }: Area) => 
             <TableRow key={name}>
               <TableCell>
                 <Link component={RouterLink} to={`/areas/${name}`}>

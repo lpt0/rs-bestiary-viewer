@@ -9,3 +9,7 @@ export type LabelValue = {
   value: number
 };
 
+export type IdName = {
+  id: number,
+  name: string
+};

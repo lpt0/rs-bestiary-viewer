@@ -1,15 +1,23 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Table from "@mui/material/Table";
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Link from "@mui/material/Link";
+import { API } from "../Utils";
+import { IdName } from "../interfaces/parameters";
 
 /** List all slayer categories. */
 export default function AllSlayerCategories() {
   const [ categories, setCategories ] = useState([]);
+
+  useEffect(() => {
+    API.get("/slayer")
+      .then(res => setCategories(res.data))
+      .catch(e => console.error(e));
+  }, []);
 
   return (
     <Table>
@@ -22,11 +30,11 @@ export default function AllSlayerCategories() {
 
       <TableBody>
         { 
-          categories.map((area: string) => 
-            <TableRow>
+          categories.map(({ id, name }: IdName) => 
+            <TableRow key={id}>
               <TableCell>
-                <Link to={`/areas/${area}`}>
-                  {area}
+                <Link component={RouterLink} to={`/slayer/${id}`}>
+                  {name}
                 </Link>
               </TableCell>
             </TableRow>

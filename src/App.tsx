@@ -4,6 +4,7 @@ import Header from './Header';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
 import AllAreas from './areas/All';
+import SpecificArea from './areas/Specific';
 
 const darkTheme = createTheme({
   palette: {
@@ -21,7 +22,8 @@ function App() {
           <Header />
 
           <div id="ContentHolder">
-            <Route path="/areas" component={AllAreas} />
+            <Route path="/areas/:name" exact component={SpecificArea} />
+            <Route path="/areas" exact component={AllAreas} />
           </div>
         </Router>
       </div>

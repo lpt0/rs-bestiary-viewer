@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import { API } from "../Utils";
 import { Area } from "../interfaces/parameters";
 
@@ -23,6 +24,8 @@ export default function AllAreas() {
     <Table>
 
       <TableHead>
+        <Typography component="h1" variant="h5">Areas</Typography>
+
         <TableRow>
           <TableCell>Area</TableCell>
         </TableRow>
